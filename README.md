@@ -23,6 +23,7 @@ three.jsを使用したVRMファイルのアニメーションのサンプル
 ```
 http://localhost:8080/sample01
 ```
+歩行アニメーションのために、jsonファイルを使用しますが、同梱していません。[アニメーションデータ出力用のUnityスクリプト](https://github.com/st-user/js-animation-samples/tree/main/tools/animation-json)を使用して出力しています。
 
 ## sample02
 WebAudioを使用した、VRMモデルの口を動かすアニメーションのサンプル。
