@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#unityContainerWrapper {
+    position: relative;
+}
+
+.ctrl-buttons {
+    bottom: 1%;
+    left: 1%;
+    list-style: none;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    width: 960px;
+}
+
+.ctrl-buttons button {
+    appearance: none;
+    background: #35B3ED;
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 16px;
+}
+
+.ctrl-buttons > li {
+    float: left;
+    margin-right: 12px;
+}
+
+.explanations {
+    clear: both;
+    list-style: square;
+    margin: auto;
+    max-width: 960px;
+}
+
+.explanations li {
+    margin: 0;
+    padding: 0;
+}

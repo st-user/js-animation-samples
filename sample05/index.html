@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PannerNode Spatialization Demo</title>
+        <style type="text/css">
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+            ul, li {
+                margin: 0;
+                padding: 0;
+            }
+            ul {
+                list-style: none;
+            }
+            #explanations {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                color: white;
+            }
+            #explanation-orbit,
+            #explanation-rotate {
+                display: none;               
+            }
+            #playSound {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-63px, -53px);
+                padding: 6px;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            #playSound button {
+                font-size: 36px;
+                width: 120px;
+                height: 100px;
+            }
+            #cameraControl {
+                font-size: 12px;
+            }
+            #debug {
+                position: absolute;
+                bottom: 36px;
+                right: 12px;
+            }
+            #specialTest {
+                position: absolute;
+                bottom: 12px;
+                right: 12px;
+
+            }
+        </style>
+        <!-- ##GA-TrackingCodeHere## -->
+    </head>
+    <body>
+        <div id="explanations">
+            <div>Please use a stereo headphone.</div>
+            <div><a href="https://github.com/st-user/js-animation-samples/tree/master/sample05" target="_blank" rel="noopener noreferrer">Source code</a></div>
+            <div id="explanation-orbit">
+                <div>Left mouse button drag: rotate</div>
+                <div>Right mouse button drag: pan</div>
+            </div>
+            <div id="explanation-rotate">
+                <div>Keyboard ArrowUp/ArrowDown: rotate on X-axis</div>
+                <div>Keyboard ArrowLeft/ArrowRight: rotate on Y-axis</div>
+            </div>
+        </div>
+
+
+        <canvas id="myCanvas"></canvas>
+        
+        <div id="playSound">
+            <div>
+                <button type="button" id="play">Play sound</button>
+            </div>
+            <ul id="cameraControl">
+                <li>Camera Control</li>
+                <li><label><input type="radio" name="cameraControlType" value="0" checked/>Orbit</label></li>
+                <li><label><input type="radio" name="cameraControlType" value="1"/>Simple Rotation</label></li>
+            </ul>
+        </div>
+
+        <div id="debug">
+            <button type="button" id="dump">Dump Audio Listener Info</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+        <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="util/TransfromInspector.js"></script>
+        <script src="util/PannerNodeInspector.js"></script>
+        <script src="util/AudioListenerDebug.js"></script>
+        <script src="util/SimpleRotationControls.js"></script>
+        <script src="main.js"></script>
+        <!--<script src="main_use_threejs_positionalaudio.js"></script>-->
+
+    </body>
+</html>

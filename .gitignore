@@ -1,0 +1,7 @@
+.DS_Store
+.vrm/*
+/node_modules/*
+/sample01/.lib/*
+/sample01/.vrm/*
+/sample03/.dist/*
+/sample03/dist/Build/*

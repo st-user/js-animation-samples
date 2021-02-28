@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Unity WebGLビルドを利用しVRMモデルをアニメーションさせてみる</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="Build/UnityLoader.js"></script>
+        <script>
+          window.unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGLTestScene.json");
+        </script>
+        <!-- ##GA-TrackingCodeHere## -->
+    </head>
+    <body>
+
+        <div id="unityContainerWrapper">
+            <div id="unityContainer"></div>
+            <ul class="ctrl-buttons">
+                <li>
+                    <button type="button" id="walk">Walk</button>
+                </li>
+                <li>
+                    <button type="button" id="swing">Swing</button>
+                </li>
+                <li>
+                    <button type="button" id="turn">Turn</button>
+                </li>
+                <li>
+                    <button type="button" id="stop">Stop</button>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="explanations">
+            <li>VRMファイルをブラウザウィンドウにDrag&amp;Dropすると、シーンにモデルが追加されます。(複数可)</li>
+            <li>各ボタンを押すことでアニメーションさせることが可能です。</li>
+            <li>カーソルキー上下でカメラの前後の位置、カーソルキー左右でカメラの角度を変えることが可能です。</li>
+            <li>スペシャルサンクス：アニメーションには<a href="https://booth.pm/ja/items/1655686" target="_blank" rel="noopener noreferrer">『VRMお人形遊び』用アニメーションデータ詰め合わせ</a> のアセット利用しています。</li>
+            <li><a href="https://github.com/st-user/js-animation-samples/tree/master/sample03" target="_blank" rel="noopener noreferrer">ソースコードなど</a></li>
+        </ul>
+
+        <script src="main.js"></script>
+    </body>
+</html>

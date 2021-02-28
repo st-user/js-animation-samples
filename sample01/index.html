@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>three-vrmを利用しVRMモデルをアニメーションさせてみる</title>
+        <!-- ##GA-TrackingCodeHere## -->
+    </head>
+    <style type="text/css">
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        .explanations {
+            margin-left: 10%;
+            margin-bottom: 12px;
+        }
+        .ctrl-row {
+            margin-left: 10%;
+            overflow: hidden;
+            clear: both;
+            margin-bottom: 12px;
+        }
+        .button_list {
+            list-style: none;
+        }
+        .button_list > li {
+            float: left;
+            margin-right: 12px;
+        }
+        .speed_ctrl {
+            clear: both;
+        }
+    </style>
+    <body>
+        <canvas id="myCanvas"></canvas>
+
+        <ul class="explanations">
+            <li>VRMファイルをブラウザウィンドウにDrag&amp;Dropすると、シーンにモデルが追加されます。</li>
+            <li>各ボタンを押すことでアニメーションさせることが可能です。</li>
+            <li>シーン上をマウスドラッグし、視点を変えることが可能です。</li>
+            <li>スペシャルサンクス：歩行アニメーションには<a href="https://booth.pm/ja/items/1655686" target="_blank" rel="noopener noreferrer">『VRMお人形遊び』用アニメーションデータ詰め合わせ</a> のアセット利用しています。</li>
+            <li><a href="https://github.com/st-user/js-animation-samples/tree/master/sample01" target="_blank" rel="noopener noreferrer">ソースコードなど</a></li>
+        </ul>
+
+        <ul class="ctrl-row button_list">
+            <li><button id="mouth_A" type="button">あ</button></li>
+            <li><button id="mouth_I" type="button">い</button></li>
+            <li><button id="mouth_U" type="button">う</button></li>
+            <li><button id="mouth_E" type="button">え</button></li>
+            <li><button id="mouth_O" type="button">お</button></li>
+            <li><button id="eye_open" type="button">目を開く</button></li>
+            <li><button id="eye_close" type="button">目を閉じる</button></li>
+        </ul>
+        <ul class="ctrl-row button_list">
+            <li>アニメーション:</li>
+            <li><button id="walk" type="button">歩く</button></li>
+            <li><button id="wait" type="button">待機</button></li>
+            <li><button id="blink" type="button">まばたき</button></li>
+            <li><button id="stop" type="button">アニメーション停止</button></li>
+        </ul>
+        <div class="ctrl-row">
+            歩行アニメーションスピード:<input id="animationSpeed" type="range" min="1" max="9" value="8"/>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+        <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
+        <!-- for local test-->
+        <script src="/node_modules/@pixiv/three-vrm/lib/three-vrm.js"></script>
+        <!-- to deploy to web server -->
+        <script src=".lib/three-vrm.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

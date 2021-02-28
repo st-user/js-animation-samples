@@ -1,0 +1,18 @@
+{
+  "name": "three-animation-samples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@pixiv/three-vrm": "^0.5.6",
+    "express": "^4.17.1",
+    "puppeteer": "^5.5.0",
+    "three": "^0.124.0",
+    "ws": "^7.4.2"
+  }
+}

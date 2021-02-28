@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            ul, li {
+                margin: 0;
+                padding: 0;
+            }
+            #button_list {
+                margin-left: 10%;
+                list-style: none;
+                overflow: hidden;
+            }
+            #button_list > li {
+                float: left;
+                margin-right: 12px;
+            }
+            #range {
+                margin-left: 10%;
+                clear: both;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <canvas id="frequencyGraph" style="float: left;"></canvas>
+        <canvas id="signalGraph" style="float: left; margin-left: 12px;"></canvas>
+        <canvas id="signalStrengthGraph" style="clear: both; margin-top: 12px;"></canvas>
+
+        <ul id="button_list">
+            <li><button id="play" type="button">play</button></li>
+            <li><button id="stop" type="button">stop</button></li>
+            <li>入力
+                <label>
+                    <input id="audioSource" type="radio" name="audioSource" value="0" checked/>ファイル
+                </label>
+                <label>
+                    <input id="audioSource" type="radio" name="audioSource" value="1"/>マイク
+                </label>
+            </li>
+        </ul>
+        <div id="range">
+            感知する音の大きさの閾値<input id="volumeStrengthLowerLimit" type="range" min="0" max="128" value="16"/>
+        </div>
+
+        <canvas id="avatar"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+        <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
+        <!-- for local test-->
+        <script src="/node_modules/@pixiv/three-vrm/lib/three-vrm.js"></script>
+        <!-- to deploy to web server -->
+        <script src=".lib/three-vrm.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
