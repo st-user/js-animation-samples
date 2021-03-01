@@ -16,7 +16,10 @@ node server.js
 ```
 VRMファイルそのものは同梱していないため、ご自身で用意してください。基本的にはどのサンプルもブラウザウィンドウにDrag&Dropすることにより、シーンにモデルが追加されるようになっています。
 
-*動作確認したブラウザ：Google Chrome時点最新バージョン
+## 動作ブラウザ
+推奨: Google Chrome
+
+sample01, sample02, sample03, sample05は、Microsoft Edge, FireFoxでも動作を確認した
 
 ## sample01
 three.jsを使用したVRMファイルのアニメーションのサンプル
