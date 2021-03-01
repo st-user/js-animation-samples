@@ -1,3 +1,5 @@
+/*global THREE, AudioListenerDebug, PannerNodeInspector, TransfromInspector, SimpleRotationControls */
+
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 
@@ -101,7 +103,7 @@ const createPerson = (color, name, defaultPosition) => {
     }
 
     return group;
-}
+};
 const speakerMesh = createPerson(0x0000ff, 'Speaker', { x: 0, y: 1, z: -3 });
 scene.add(speakerMesh);
 
@@ -117,7 +119,7 @@ const pannerNodeInspector = new PannerNodeInspector({
 
 const transformInspector = new TransfromInspector({
     parent: document.body,
-    title: `Speaker's position & rotation`
+    title: 'Speaker\'s position & rotation'
 });
 transformInspector.setObject(speakerMesh);
 
@@ -140,7 +142,7 @@ document.querySelector('#play').addEventListener('click', async () => {
     } else {
         camera.position.set(0.0, 2, -8);
         camera.lookAt(1, 2, -8);
-        constrols = new SimpleRotationControls(camera);
+        controls = new SimpleRotationControls(camera);
         document.querySelector('#explanation-rotate').style.display = 'block';
     }
 

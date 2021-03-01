@@ -1,4 +1,4 @@
-const PannerNodeInspector = (() => {
+const PannerNodeInspector = (() => { // eslint-disable-line no-unused-vars
 
     const defaultStyles = {
         _container: {
@@ -53,19 +53,19 @@ const PannerNodeInspector = (() => {
 
                     ${_for(data.properties, (prop, propName) => {
 
-                        if (prop.type === 'text') {
+        if (prop.type === 'text') {
 
-                            return `
+            return `
                                 <li class="${data.classNamePrefix}_eachProperty">
                                     <span class="${data.classNamePrefix}_textPropertyName">${propName}:</span>
                                     <input type="text" name="${data.inputNamePrefix}_${propName}" class="${data.classNamePrefix}_textPropertyValue"/>
                                 </li>
                             `;
-                        }
+        }
             
-                        if (prop.type === 'select') {
+        if (prop.type === 'select') {
 
-                            return `
+            return `
                                 <li class="${data.classNamePrefix}_eachProperty">
                                     <span class="${data.classNamePrefix}_selectPropertyName">${propName}:</span>
                                     <select name="${data.inputNamePrefix}_${propName}" class="${data.classNamePrefix}_selectPropertyValue">
@@ -75,9 +75,9 @@ const PannerNodeInspector = (() => {
                                     </select>
                                 </li>
                             `;
-                        }
+        }
 
-                    })}
+    })}
 
                 </ul>
             </div>
@@ -85,7 +85,7 @@ const PannerNodeInspector = (() => {
     };
 
     const toDouble = value => {
-        if (/^[\-|\+]?\d*\.?\d*$/.test(value)) {
+        if (/^[-|+]?\d*\.?\d*$/.test(value)) {
             return parseFloat(value);
         }
         return undefined;
@@ -154,7 +154,7 @@ const PannerNodeInspector = (() => {
 
             /* set default params. */
             _params.parent = _params.parent || document.body;
-            _params.title = _params.title || `PannerNode's properties`;
+            _params.title = _params.title || 'PannerNode\'s properties';
             _params.inputNamePrefix = _params.inputNamePrefix || 'pannerNodeInspector';
             _params.classNamePrefix = _params.classNamePrefix || 'pannerNodeInspector';
             _params.styles = _params.styles || {};
@@ -172,9 +172,9 @@ const PannerNodeInspector = (() => {
                 $ul.style.listStyle = 'none';
             });
             const $lis = $container.querySelectorAll('li');
-            $uls.forEach($li => {
+            $lis.forEach($li => {
                 $li.style.margin = '0';
-                $li.style.padding = '0'
+                $li.style.padding = '0';
             });
 
             for (const [classKey, styleValue] of Object.entries(defaultStyles)) {
@@ -197,7 +197,7 @@ const PannerNodeInspector = (() => {
             for (const [propName, prop] of properties.entries()) {
                 if (prop.type === 'text') {
                     const $inputNode = $parent.querySelector(`input[name="${_params.inputNamePrefix}_${propName}"]`);
-                    $inputNode.addEventListener('change', event => {
+                    $inputNode.addEventListener('change', () => {
                         if (!this._pannerNode) {
                             return;
                         }
@@ -222,7 +222,7 @@ const PannerNodeInspector = (() => {
                 if (prop.type === 'select') {
                     const $selectNode = $parent.querySelector(`select[name="${_params.inputNamePrefix}_${propName}"]`);
 
-                    $selectNode.addEventListener('change', event => {
+                    $selectNode.addEventListener('change', () => {
                         if (!this._pannerNode) {
                             return;
                         }

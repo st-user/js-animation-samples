@@ -1,4 +1,4 @@
-const SimpleRotationControls = (() => {
+const SimpleRotationControls = (() => { // eslint-disable-line no-unused-vars
 
 
     class _Class {

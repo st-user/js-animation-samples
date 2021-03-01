@@ -1,3 +1,5 @@
+/*global THREE */
+
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 
@@ -189,31 +191,29 @@ class VrmModule {
             }
             currentJsonIndex++;
             return ret;
-        }
+        };
 
-        let jsonFetchCounter = ANIM_START_COUNT;
         const fetchAllJson = () => {
 
             fetch('.vrm/walk.json')
                 .then(response => response.json())
                 .then(json => {
-                    animationJsonArray = json
+                    animationJsonArray = json;
                     animationJsonArray.forEach(animationJson => {
                         animationJson.forEach(animation => {
                             animation.name = -(-animation.name);
                         });
-                    })
+                    });
                 });
 
         };
         fetchAllJson();
 
-        let needsUpdateframe = false;
         let animationFrameCounter = 0;
         const updateFrame = () => {
 
             if (!this.walkControl.needsUpdateframe || animationFrameCounter % (10 - this.walkControl.walkSpeed) !== 0) {
-                animationFrameCounter++
+                animationFrameCounter++;
                 requestAnimationFrame(updateFrame);
                 return;
             }
@@ -242,7 +242,7 @@ class VrmModule {
 
 
             requestAnimationFrame(updateFrame);
-        }
+        };
         updateFrame();
 
         this.walkControl.walkSpeed = 8;
@@ -455,7 +455,7 @@ class VrmModule {
             }
         };
 
-        stopAnimation(stopOnly)
+        stopAnimation(stopOnly);
     }
 
     update(clockDelta) {
@@ -499,7 +499,7 @@ const _$click = (id, handler) => {
     document.querySelector('#' + id).addEventListener('click', handler);
 };
 
-/* 口　*/
+/* 口 */
 
 const _$mouth = (id, name) => {
     _$click(id, () => {
@@ -583,6 +583,6 @@ const onResize = () => {
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-}
+};
 window.addEventListener('resize', onResize);
 onResize();

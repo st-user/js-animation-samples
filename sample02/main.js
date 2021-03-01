@@ -1,3 +1,5 @@
+/*global THREE */
+
 const GRAPH_CANVAS_WIDTH = 480;
 const GRAPH_CANVAS_WIDTH_LARGE = GRAPH_CANVAS_WIDTH * 2 + 12;
 const GRAPH_CANVAS_HEIGHT = 160;
@@ -64,7 +66,7 @@ const analyseFrequency = analyser => {
             ctx.fillRect(x, GRAPH_CANVAS_HEIGHT - barHeight / 2, barWidth, barHeight);
 
             x += barWidth + 1;
-         }
+        }
 
         requestAnimationFrame(draw);
     };
@@ -194,7 +196,7 @@ const createSource = async () => {
     if (checkedValue === '0') {
 
         const decodeBuffer = arrayBuffer => {
-            return new Promise((resolve, reject) => {
+            return new Promise(resolve => {
                 return audioContext.decodeAudioData(arrayBuffer, buffer => {
                     resolve(buffer);
                 });
@@ -203,8 +205,8 @@ const createSource = async () => {
 
         const audioUrl = 'assets/audio/sample_voice.mp3';
         const decodedBuffer = await fetch(audioUrl)
-                                .then(response => response.arrayBuffer())
-                                .then(decodeBuffer);
+            .then(response => response.arrayBuffer())
+            .then(decodeBuffer);
         source = audioContext.createBufferSource();
         source.buffer = decodedBuffer;
         source.loop = true;
@@ -367,7 +369,7 @@ const mouthBlendShapeNameMap = {
     'mouth_U': THREE.VRMSchema.BlendShapePresetName.U,
     'mouth_E': THREE.VRMSchema.BlendShapePresetName.E,
     'mouth_O': THREE.VRMSchema.BlendShapePresetName.O,
-}
+};
 
 const moveMouth = isOpen => {
     if (!vrmModel) {

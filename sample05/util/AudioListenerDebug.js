@@ -1,4 +1,6 @@
-const AudioListenerDebug = (() => {
+/*global THREE */
+
+const AudioListenerDebug = (() => { // eslint-disable-line no-unused-vars
 
     return {
 

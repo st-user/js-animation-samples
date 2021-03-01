@@ -1,3 +1,4 @@
+/*global THREE */
 /* Three.js */
 
 const $canvas = document.createElement('canvas');
@@ -101,8 +102,8 @@ console.log('Three.js loaded.');
 
 
 /* WebRTC */
-const signalingChannel = new WebSocket(`ws://localhost:8080/signaling`);
-signalingChannel.onopen = event => {
+const signalingChannel = new WebSocket('ws://localhost:8080/signaling');
+signalingChannel.onopen = () => {
     signalingChannel.send(JSON.stringify({
         type: 'headlessPageLoaded'
     }));
@@ -208,7 +209,7 @@ signalingChannel.onmessage = event => {
     const messageObj = JSON.parse(event.data);
     const type = messageObj.type;
 
-    //　このサンプルではクライアント主導でsignalingする
+    // このサンプルではクライアント主導でsignalingする
     switch(type) {
     case 'offer':
         createAnswer(messageObj);
@@ -222,7 +223,7 @@ signalingChannel.onmessage = event => {
     }
 };
 
-signalingChannel.onclose = event => {
+signalingChannel.onclose = () => {
     console.log('Connection has been closed so reload the page later a bit.');
     document.querySelector('#signalingConnectionClosed').value = true;
 };

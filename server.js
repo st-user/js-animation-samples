@@ -1,9 +1,7 @@
 const express = require('express');
 const WebSocket = require('ws');
-const http = require('http');
 
 const app = express();
-const server = http.createServer(app);
 const PORT = 8080;
 
 
@@ -35,7 +33,7 @@ websocketServer.on('connection', ws => {
         });
     });
 
-    ws.on('close', (code, reason) => {
+    ws.on('close', () => {
         websocketServer.clients.forEach(clientSocket => {
 
             if (clientSocket !== ws) {

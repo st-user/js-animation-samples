@@ -1,3 +1,5 @@
+/*global unityInstance */
+
 let objectCounter = 0;
 class UnityInstanceWrapper {
 
@@ -34,7 +36,7 @@ window.addEventListener('drop', event => {
 const setUpChangeAnimationEvent = (id, flag) => {
     const $button = document.querySelector('#' + id);
     $button.addEventListener('click', () => {
-        UnityInstanceWrapper.invoke("ChangeAnimation", flag);
+        UnityInstanceWrapper.invoke('ChangeAnimation', flag);
     });
 };
 
@@ -51,6 +53,6 @@ const onResize = () => {
 
     $unityContainer.width = width;
     $unityContainer.height = height;
-}
+};
 window.addEventListener('resize', onResize);
 onResize();

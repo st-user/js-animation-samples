@@ -1,3 +1,5 @@
+/*global THREE, AudioListenerDebug, PannerNodeInspector, TransfromInspector, SimpleRotationControls */
+
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 
@@ -103,7 +105,7 @@ const createPerson = (color, name, defaultPosition) => {
     }
 
     return group;
-}
+};
 const speakerMesh = createPerson(0x0000ff, 'Speaker', { x: 0, y: 1, z: -3 });
 scene.add(speakerMesh);
 
@@ -118,7 +120,7 @@ const pannerNodeInspector = new PannerNodeInspector({
 
 const transformInspector = new TransfromInspector({
     parent: document.body,
-    title: `Speaker's position & rotation`
+    title: 'Speaker\'s position & rotation'
 });
 transformInspector.setObject(speakerMesh);
 
@@ -151,7 +153,7 @@ class RotatableUpVectorAudioListener extends THREE.AudioListener {
         this._forward.set(0, 0, -1).applyQuaternion(this._quaternion);
         this._up.set(0, 1, 0).applyQuaternion(this._quaternion);
 
-       if (listener.forwardX) {
+        if (listener.forwardX) {
 
             const endTime = this.context.currentTime + this.timeDelta;
 
@@ -184,7 +186,7 @@ document.querySelector('#play').addEventListener('click', () => {
     } else {
         camera.position.set(0.0, 2, 8);
         camera.lookAt(1, 2, 8);
-        constrols = new SimpleRotationControls(camera);
+        controls = new SimpleRotationControls(camera);
     }
 
     // const listener = new THREE.AudioListener();

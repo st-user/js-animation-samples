@@ -1,4 +1,6 @@
-const TransfromInspector = (() => {
+/*global THREE */
+
+const TransfromInspector = (() => { // eslint-disable-line no-unused-vars
 
     const defaultStyles = {
         _container: {
@@ -149,9 +151,9 @@ const TransfromInspector = (() => {
                 $ul.style.listStyle = 'none';
             });
             const $lis = $container.querySelectorAll('li');
-            $uls.forEach($li => {
+            $lis.forEach($li => {
                 $li.style.margin = '0';
-                $li.style.padding = '0'
+                $li.style.padding = '0';
             });
 
             for (const [classKey, styleValue] of Object.entries(defaultStyles)) {
@@ -217,7 +219,7 @@ const TransfromInspector = (() => {
                 if (value.length === 0) {
                     return false;
                 }
-                return /^[\-|\+]?\d*\.?\d*$/.test(value);
+                return /^[-|+]?\d*\.?\d*$/.test(value);
             };         
 
             const setTransformAnimation = (tracks, name, oldClip) => {

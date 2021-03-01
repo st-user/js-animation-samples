@@ -10,8 +10,8 @@ $pingButton.disabled = true;
 $animationButton.disabled = true;
 
 /* WebRTC */
-const signalingChannel = new WebSocket(`ws://localhost:8080/signaling`);
-signalingChannel.onopen = event => {
+const signalingChannel = new WebSocket('ws://localhost:8080/signaling');
+signalingChannel.onopen = () => {
     console.log('opened.');
 };
 
@@ -40,10 +40,10 @@ const transferFile = () => {
     const fileReader = new FileReader();
     let offset = 0;
 
-    fileReader.addEventListener('error', error => {
+    fileReader.addEventListener('error', () => {
         console.error(`Encounter an error on reading file. ${offset}`);
     });
-    fileReader.addEventListener('abort', event => {
+    fileReader.addEventListener('abort', () => {
         console.log(`File reading aborted. ${offset}`);
     });
 
@@ -109,7 +109,7 @@ signalingChannel.onmessage = event => {
     const messageObj = JSON.parse(event.data);
     const type = messageObj.type;
 
-    //　このサンプルではクライアント主導でsignalingする
+    // このサンプルではクライアント主導でsignalingする
     switch(type) {
     case 'headlessPageLoaded':
         $startButton.disabled = false;
@@ -126,7 +126,7 @@ signalingChannel.onmessage = event => {
     }
 };
 
-signalingChannel.onclose = event => {
+signalingChannel.onclose = () => {
     alert('ヘッドレスブラウザがシグナリングサーバーとの接続を切断しました。');
     location.href = './';
 };
@@ -206,6 +206,6 @@ const onResize = () => {
 
     $video.width = width;
     $video.height = height;
-}
+};
 window.addEventListener('resize', onResize);
 onResize();
