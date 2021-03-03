@@ -127,6 +127,7 @@ transformInspector.setObject(speakerMesh);
 
 let audioContext;
 let pannerNode;
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 
 /* set event handlers */
 document.querySelector('#play').addEventListener('click', async () => {
