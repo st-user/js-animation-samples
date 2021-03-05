@@ -15,6 +15,10 @@ const AudioListenerDebug = (() => { // eslint-disable-line no-unused-vars
                 return;
             }
             const listener = audioContext.listener;
+            if (!listener.positionX) {
+                console.warn('Can not access listener.positionX property.');
+                return;
+            }
             const positionX = listener.positionX.value;
             const positionY = listener.positionY.value;
             const positionZ = listener.positionZ.value;
