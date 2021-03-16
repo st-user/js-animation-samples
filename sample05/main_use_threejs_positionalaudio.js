@@ -173,6 +173,8 @@ class RotatableUpVectorAudioListener extends THREE.AudioListener {
     }
 }
 
+const $audio = document.querySelector('audio');
+
 /* set event handlers */
 document.querySelector('#play').addEventListener('click', () => {
 
@@ -193,16 +195,11 @@ document.querySelector('#play').addEventListener('click', () => {
     const listener = new RotatableUpVectorAudioListener();
     camera.add(listener);
 
+    $audio.play();
     const sound = new THREE.PositionalAudio(listener);
-    pannerNodeInspector.setPannerNode(sound.getOutput());
+    sound.setMediaElementSource($audio);
 
-    const soundUrl = 'sound/sample_voice.mp3';
-    const audioLoader = new THREE.AudioLoader();
-    audioLoader.load(soundUrl, buffer => {
-        sound.setBuffer(buffer);
-        sound.setLoop(true);
-        sound.play();
-    });
+    pannerNodeInspector.setPannerNode(sound.getOutput());
 
     speakerMesh.add(sound);
 });

@@ -124,7 +124,7 @@ const transformInspector = new TransfromInspector({
 transformInspector.setObject(speakerMesh);
 
 
-
+const $audio = document.querySelector('audio');
 let audioContext;
 let pannerNode;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -151,24 +151,15 @@ document.querySelector('#play').addEventListener('click', async () => {
         audioContext = new AudioContext();
     }
     
-    const soundUrl = 'sound/sample_voice.mp3';
-    const responseBuffer = await fetch(soundUrl).then(res => res.arrayBuffer());
+    $audio.play();
 
-    audioContext.decodeAudioData(responseBuffer, buffer => {
+    const source = audioContext.createMediaElementSource($audio);
+    pannerNode = audioContext.createPanner();
 
-        const source = audioContext.createBufferSource();
-        pannerNode = audioContext.createPanner();
+    source.connect(pannerNode);
+    pannerNode.connect(audioContext.destination);
 
-        source.buffer = buffer;
-        source.connect(pannerNode);
-        pannerNode.connect(audioContext.destination);
-
-        source.loop = true;
-        source.start(0);
-
-        pannerNodeInspector.setPannerNode(pannerNode);     
-
-    });
+    pannerNodeInspector.setPannerNode(pannerNode);     
 });
 
 const setAudioListenerProperties = obj => {
